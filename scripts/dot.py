@@ -5,11 +5,11 @@ import argparse
 import datetime
 import logging
 import settings
-
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from models import *
 
+logger=None
 
 def main():
     global logger
@@ -143,7 +143,13 @@ def parseDate(d):
     
     try:
         finalDate = datetime.date(int(tempDate[2]), int(tempDate[0]), int(tempDate[1]))
+
+        #MAKE SURE YEAR > 1900
+        if finalDate.year<=1900:
+            logger.error("date cannot be before 01-01-1900")
+            sys.exit(-1)
         return finalDate
+        
     except ValueError as e:
         logger.error("Date error, " + str(e))
         sys.exit(-1)
