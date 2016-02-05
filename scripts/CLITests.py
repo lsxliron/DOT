@@ -57,7 +57,7 @@ class CLITests(unittest.TestCase):
         self.assertEqual(tempDate.year,2015)
 
     @patch('dot.logger')
-    def test_parseTime_invalidTime(self,l):
+    def test_parseTime_invalidTime(self,logger):
         with self.assertRaises(SystemExit) as timeError:
             dot.parseTime("x")
         self.assertEqual(timeError.exception.code,-1)
@@ -67,7 +67,7 @@ class CLITests(unittest.TestCase):
         self.assertEqual(timeError.exception.code,-1)
 
     @patch('dot.logger')
-    def test_parseTime_timeDoesNotExists(self, l):
+    def test_parseTime_timeDoesNotExists(self, logger):
         with self.assertRaises(SystemExit) as timeError:
             dot.parseTime("-11:22:33")
         self.assertEqual(timeError.exception.code, -1)
@@ -77,37 +77,37 @@ class CLITests(unittest.TestCase):
         self.assertEqual(timeError.exception.code, -1)
 
     @patch('dot.logger')
-    def test_parseTime_invalidTimeFormat(self, l):
+    def test_parseTime_invalidTimeFormat(self, logger):
         with self.assertRaises(SystemExit) as timeError:
             dot.parseTime("11-22-33")
         self.assertEqual(timeError.exception.code, -1)
 
     @patch('dot.logger')
-    def test_parseTime_validTime(self, l):
+    def test_parseTime_validTime(self, logger):
         tempTime = dot.parseTime("11:22:33")
         self.assertEqual(tempTime.hour, 11)
         self.assertEqual(tempTime.minute, 22)
         self.assertEqual(tempTime.second, 33)
 
     @patch('dot.logger')
-    def test_negativeDateDelta(self, l):
+    def test_negativeDateDelta(self, logger):
         with self.assertRaises(SystemExit) as deltaError:
             dot.getDates('01-02-2000', '01-01-2000')
         self.assertEqual(deltaError.exception.code, -1)
 
     @patch('dot.logger')
-    def test_negativeTimeDelta(self, l):
+    def test_negativeTimeDelta(self, logger):
         with self.assertRaises(SystemExit) as deltaError:
             dot.getTimes('11:22:33', '11:22:32')
         self.assertEqual(deltaError.exception.code, -1)
 
     @patch('dot.logger')
-    def test_validDateDelta(self, l):
+    def test_validDateDelta(self, logger):
         delta = dot.getDates('01-01-2001', '01-02-2002')
         self.assertEqual(len(delta), 2)
 
     @patch('dot.logger')
-    def test_validTimeDelta(self, l):
+    def test_validTimeDelta(self, logger):
         delta = dot.getTimes('11:22:33', '23:22:33')
         self.assertEqual(len(delta), 2)
 

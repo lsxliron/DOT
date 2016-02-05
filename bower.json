@@ -1,0 +1,8 @@
+{
+    "name":"DOT Image Database",
+    "version": "0.1",
+    "dependencies":{
+        "bootstrap-sass-official": null,
+        "bootstrap-datepicker": null
+    }
+}
