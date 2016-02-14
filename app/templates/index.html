@@ -5,32 +5,99 @@
     <div class="row col-xs-12">
         <h1>Query Information</h1>
     </div>
-    <div class="row">
-        <div class="col-md-2">
+    <div class="row"> 
+        <div class="col-xs-8 col-md-2">
             <label>Camera Location ID:</label>
         </div>
         
-        <div class="col-md-2">
-            <input class="form-control" type="text" placeholder="e.g 192" />
+        <div class="col-xs-4 col-md-2">
+            <input id="locationInput" class="form-control" type="text" placeholder="e.g 192" />
         </div>
 
-        <div class="col-md-2">
+        <div class="col-xs-8 col-md-2">
             <label>Weather Status:</label>
         </div>
         
-        <div class="col-md-4">
+        <div class="col-xs-4 col-md-3">
             <div class="drowdown" id="rainDropdown">
-                <button id="rainDropdownButton" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Please select...<span class="caret"></span>
+                <button id="rainDropdownButton" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">All<span class="caret"></span>
                 </button>
 
                 <ul class="dropdown-menu">
+                    <li><a>All</a></li>
                     <li><a>Not rainy</a></li>
                     <li><a>Rainy</a></li>
-                    <li><a>Both</a></li>
                 </ul>
             </div>   
         </div>
-    </div>
+        <div class="col-xs-8 col-md-1">
+            <label>Limit:</label>
+        </div>
+        <div class="col-xs-4 col-md-2">
+            <input id="limitInput" type="text" class="form-control" placeholder="no limit"/>
+        </div>
+    </div> <!-- ROW -->
+    <div class="row">
+        <div class="col-xs-5 col-md-2">
+            <label>Start Date:</label>
+        </div>
+        <div class="col-xs-7 col-md-2">
+            <div class="input-group date" id="startDate">
+                <input id="startDateInput" type="text" class="form-control" placeholder="e.g 01/01/2015" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+        <div class="col-xs-5 col-md-2">
+            <label>End Date:</label>
+        </div>
+        <div class="col-xs-7 col-md-2">
+            <div class="input-group date" id="endDate">
+                <input id="endDateInput" type="text" class="form-control" placeholder="e.g 01/02/2015" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div> <!-- ROW -->
+
+    <div class="row">
+        <div class="col-xs-5 col-md-2">
+            <label>Start Time:</label>
+        </div>
+        
+        <div class="col-xs-7 col-md-2">
+            <div class="input-group date" id="startTime">
+                <input id="startTimeInput" type="text" class="form-control" placeholder="e.g 20:30:00" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+        
+        <div class="col-xs-5 col-md-2">
+            <label>End Time:</label>
+        </div>
+        <div class="col-xs-7 col-md-2">
+            <div class="input-group date" id="endTime">
+                <input id="endTimeInput" type="text" class="form-control" placeholder="e.g 20:31:02" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-2 buttonDiv">
+            <button class="btn btn-info" id="clearButton">Clear</button>
+        </div>
+        <div class="col-xs-6 col-md-2 buttonDiv">
+            <button class="btn btn-primary" id="submitButton">Submit</button>
+        </div>
+        
+    </div> <!-- ROW -->
+
+    <hr>
+
 </div> <!-- CONTAINER -->
 
 

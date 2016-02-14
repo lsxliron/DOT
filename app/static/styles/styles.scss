@@ -7,3 +7,17 @@ label{
 .caret{
     margin-left:5px !important;
 }
+.row{margin-bottom:20px}
+
+.buttonDiv{
+    @media (max-width: $screen-sm-max){
+        text-align:center;
+        button{margin-top:15px;}
+    }
+    button{
+        margin-top:5px;
+        margin-bottom:5px;
+        @media (max-width: $screen-sm-max){width:60%;}
+        @media (min-width: $screen-md-min){width:95%;}
+    }
+}

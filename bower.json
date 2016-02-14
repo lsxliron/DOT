@@ -3,6 +3,7 @@
     "version": "0.1",
     "dependencies":{
         "bootstrap-sass-official": null,
-        "bootstrap-datepicker": null
+        "bootstrap-datepicker": null,
+        "eonasdan-bootstrap-datetimepicker":null,
     }
 }
