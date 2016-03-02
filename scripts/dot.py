@@ -100,6 +100,8 @@ def printResults(result):
 
 def getResults(session, startDate=None, endDate=None, startTime=None, endTime=None, 
                location=None, rain=None, lim=None):
+    print "___"
+    print rain
     result = session.query(DotImage)
     if startDate and endDate:
         result = result.filter(DotImage.date > startDate).filter(DotImage.date < endDate)
@@ -107,7 +109,7 @@ def getResults(session, startDate=None, endDate=None, startTime=None, endTime=No
     if startTime and endTime:
         result = result.filter(DotImage.time > startTime).filter(DotImage.time < endTime)
 
-    if rain:
+    if rain == 0 or rain == 1:
         result = result.filter(DotImage.rain == rain)
 
     if location:
