@@ -4,3 +4,4 @@ scripts.img
 *.db
 app/static/bower_components
 .DS_Store
+README.html
