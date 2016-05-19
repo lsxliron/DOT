@@ -5,3 +5,4 @@ scripts.img
 app/static/bower_components
 .DS_Store
 README.html
+tmp

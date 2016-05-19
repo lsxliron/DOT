@@ -5,11 +5,16 @@ import aux
 import datetime, json, base64, tempfile, tarfile, os
 import ipdb
 
+@app.route('/')
+def index():
+    return "Hello World"
+
 @app.route('/getData', methods=['POST'])
 def sendResponse():
     
     data = json.loads(request.data)
-    
+    if data['username']!='dotTester' or data['password']!='tbjGawmQEd8vvspeuVt4IEM051IjV2':
+        return "999" 
     dateLst = aux.getDates(data['startDate'], data['endDate'])
     timeLst = aux.getTimes(data['startTime'], data['endTime'])
         
@@ -66,18 +71,24 @@ def sendResponse():
 
 @app.route('/prepareDownload', methods=["POST"])
 def prepareFile():
-
+    print "Preparing files"
+    # Get username and password
+    username = json.loads(request.get_data())['username']
+    password = json.loads(request.get_data())['password']
+    if username != 'dotTester' or password != 'tbjGawmQEd8vvspeuVt4IEM051IjV2':
+        return "999"
     #Get ids from request
-    ids = [int(n) for n in request.get_json(force=True)['ids']]    
-
+    ids = [int(n) for n in json.loads(request.get_data())['ids']]    
+   
     #Get results
-    results = db.session.query(DotImage).filter(DotImage.id.in_(ids))
+    results = [item for item in db.session.query(DotImage).filter(DotImage.id.in_(ids))]
 
 
 
     #Compress to tarball
-    tar = tarfile.open(fileobj=tempfile.NamedTemporaryFile(delete=False), mode='w:gz') 
-    for i, row in zip(range(0, results.count()), results):
+    tar = tarfile.open(fileobj=tempfile.NamedTemporaryFile(delete=False, dir='/home/lsxliron/DOT/tmp/'), mode='w:gz') 
+    # for i, row in zip(range(0, results.count()), results):
+    for i, row in zip(range(0, len(ids)), results):
         tar.add(row.path, arcname="img" + str(i) + ".jpg")
     fullPath = tar.name
     tar.close()

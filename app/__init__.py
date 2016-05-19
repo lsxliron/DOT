@@ -1,7 +1,8 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
-UPLOAD_FOLDER = "/var/folders/zj/55tydjfj3p53bccqkdpxm_3c0000gn/T"
+#UPLOAD_FOLDER = "/var/folders/zj/55tydjfj3p53bccqkdpxm_3c0000gn/T"
+UPLOAD_FOLDER = "/home/lsxliron/DOT/tmp"
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config.from_object('config')

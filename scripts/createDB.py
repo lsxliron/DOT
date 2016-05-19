@@ -13,13 +13,14 @@ def main():
 	Session = sessionmaker(bind=engine)
 	session = Session()
 
-	imgPath = 'localhost:8000/Users/lsxliron/Desktop/DOTProject/img'
+	#imgPath = 'localhost:8000/Users/lsxliron/Desktop/DOTProject/img'
+        imgPath = '/home/lsxliron/lxrdata/DOT_0310_0514/'
 	idCounter = 1
 
 
 	for (dirpath, dirname, filenames) in os.walk(imgPath):
 		for f in filenames:
-			if f!=".DS_Store":
+			if f[-3:]=='jpg':
 				temp = DotImage()
 				temp.id = idCounter
 				temp.path = dirpath + '/' + f
@@ -38,8 +39,7 @@ def main():
 				session.add(temp)
 				idCounter += 1
 
-
-	session.commit()
+                        session.commit()
 
 
 if __name__ == "__main__":

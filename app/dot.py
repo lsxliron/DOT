@@ -265,4 +265,3 @@ def getTimes(startTime, endTime):
 
 if __name__ == "__main__":
     main()
-
