@@ -5,11 +5,13 @@ from sqlalchemy.orm import sessionmaker
 from models import *
 import settings
 import random
-
+from settings import Base
 
 def main():
-	engine = create_engine("sqlite:///" + settings.dbName, echo=settings.debug)
+	#engine = create_engine("sqlite:///" + settings.dbName, echo=settings.debug)
+        engine = create_engine("postgresql://lsxliron:liron@glasslab@localhost/water")
 	Base.metadata.create_all(engine)
+        
 	Session = sessionmaker(bind=engine)
 	session = Session()
 

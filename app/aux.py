@@ -101,10 +101,10 @@ def getResults(db, startDate=None, endDate=None, startTime=None, endTime=None,
                location=None, rain=None, lim=None):
     result = db.session.query(DotImage)
     if startDate and endDate:
-        result = result.filter(DotImage.date > startDate).filter(DotImage.date < endDate)
+        result = result.filter(DotImage.date >= startDate).filter(DotImage.date <= endDate)
 
     if startTime and endTime:
-        result = result.filter(DotImage.time > startTime).filter(DotImage.time < endTime)
+        result = result.filter(DotImage.time >= startTime).filter(DotImage.time <= endTime)
 
     if rain == 0 or rain == 1:
         result = result.filter(DotImage.rain == rain)

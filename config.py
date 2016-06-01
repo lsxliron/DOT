@@ -1,2 +1,2 @@
-SQLALCHEMY_DATABASE_URI = 'sqlite:///db/DOT.db'
+SQLALCHEMY_DATABASE_URI = 'postgresql://lsxliron:liron@glasslab@localhost/water'
 SQLALCHEMY_TRACK_MODIFICATIONS = False
