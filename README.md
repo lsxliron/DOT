@@ -1,16 +1,16 @@
-#DOT Project Server & CLI
+# DOT Project Server & CLI
 
-##Installation
+## Installation
 1. Create a virtual environment using ```virtualenv```.
 2. Activate the new environment.
 3. Install dependencies by executing ```pip install -r requirements.txt```
 
-###Prerequisites:
+### Prerequisites:
 Edit the file ```createDb.py``` and set the ```imgPath``` variable to the images path on your machine.
 The script will generate ```DOT.db``` file. that will be used in both the server and the CLI.
 In order to use the server please copy the file to ```app/db```.
 
-##CLI
+### CLI
 To use the CLI, navigate to ```scripts``` directory and run: 
 ```
 python dot.py --help
