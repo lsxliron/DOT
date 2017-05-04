@@ -1,5 +1,6 @@
 {
     "name":"DOT Image Database",
+    "author":"Liron Shimrony",
     "version": "0.1",
     "dependencies":{
         "bootstrap-sass-official": null,
