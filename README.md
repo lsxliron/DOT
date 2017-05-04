@@ -53,7 +53,7 @@ python dot.py query --startDate 01-01-2015 --endDate 12-31-2015 --startTime 00:0
 
 The above example will query the first 100 images of rainy days in 2015 from any location.
 
-##Server
+## Server
 Navigate to the root folder and run ```python runserver.py```.
 The server is running in ```http://localhost:5000```
 To change the port and ip address, please edit the ```runserver.py``` file.
